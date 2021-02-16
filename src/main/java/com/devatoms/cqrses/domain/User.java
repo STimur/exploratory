@@ -9,7 +9,7 @@ import java.util.Set;
 public class User {
 
 	@NonNull
-	private String id;
+	private String userId;
 	@NonNull
 	private String firstName;
 	@NonNull
