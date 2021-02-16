@@ -1,4 +1,4 @@
-package com.devatoms.cqrses.crud.crud;
+package com.devatoms.cqrses.crud;
 
 import org.junit.Test;
 
