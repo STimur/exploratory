@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.Set;
 
 @Data
-public class UserContact {
+public class UserContacts {
 
 	private Map<String, Set<Contact>> contactByType = new HashMap<>();
 }

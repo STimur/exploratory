@@ -1,7 +1,7 @@
 package com.devatoms.cqrses.cqrs.projections;
 
-import com.devatoms.cqrses.domain.UserAddress;
-import com.devatoms.cqrses.domain.UserContact;
+import com.devatoms.cqrses.domain.UserAddresses;
+import com.devatoms.cqrses.domain.UserContacts;
 import com.devatoms.cqrses.cqrs.queries.AddressByRegionQuery;
 import com.devatoms.cqrses.cqrs.queries.ContactByTypeQuery;
 import com.devatoms.cqrses.cqrs.repositories.UserReadRepository;
@@ -12,23 +12,23 @@ import java.util.Set;
 
 public class UserProjection {
 
-	private final UserReadRepository repository;
+	private final UserReadRepository readRepository;
 
-	public UserProjection(UserReadRepository repository) {
-		this.repository = repository;
+	public UserProjection(UserReadRepository readRepository) {
+		this.readRepository = readRepository;
 	}
 
 	public Set<Contact> handle(ContactByTypeQuery query) throws Exception {
-		UserContact userContact = repository.getUserContact(query.getUserId());
-		if (userContact == null)
+		UserContacts userContacts = readRepository.getUserContacts(query.getUserId());
+		if (userContacts == null)
 			throw new Exception("User does not exist.");
-		return userContact.getContactByType().get(query.getContactType());
+		return userContacts.getContactByType().get(query.getContactType());
 	}
 
 	public Set<Address> handle(AddressByRegionQuery query) throws Exception {
-		UserAddress userAddress = repository.getUserAddress(query.getUserId());
-		if (userAddress == null)
+		UserAddresses userAddresses = readRepository.getUserAddresses(query.getUserId());
+		if (userAddresses == null)
 			throw new Exception("User does not exist.");
-		return userAddress.getAddressByRegion().get(query.getState());
+		return userAddresses.getAddressesByRegion().get(query.getState());
 	}
 }

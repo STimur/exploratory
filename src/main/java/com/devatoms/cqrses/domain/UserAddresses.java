@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.Set;
 
 @Data
-public class UserAddress {
+public class UserAddresses {
 
-	private Map<String, Set<Address>> addressByRegion = new HashMap<>();
+	private Map<String, Set<Address>> addressesByRegion = new HashMap<>();
 }
