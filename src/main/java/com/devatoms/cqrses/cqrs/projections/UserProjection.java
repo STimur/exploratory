@@ -22,7 +22,7 @@ public class UserProjection {
 		UserContacts userContacts = readRepository.getUserContacts(query.getUserId());
 		if (userContacts == null)
 			throw new Exception("User does not exist.");
-		return userContacts.getContactByType().get(query.getContactType());
+		return userContacts.getContactsByType().get(query.getContactType());
 	}
 
 	public Set<Address> handle(AddressByRegionQuery query) throws Exception {

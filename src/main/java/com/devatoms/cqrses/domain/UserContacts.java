@@ -9,5 +9,5 @@ import java.util.Set;
 @Data
 public class UserContacts {
 
-	private Map<String, Set<Contact>> contactByType = new HashMap<>();
+	private Map<String, Set<Contact>> contactsByType = new HashMap<>();
 }

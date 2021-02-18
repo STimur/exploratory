@@ -24,7 +24,7 @@ public class UserProjector {
 			contacts.add(contact);
 			contactsByType.put(contact.getType(), contacts);
 		}
-		userContacts.setContactByType(contactsByType);
+		userContacts.setContactsByType(contactsByType);
 		readRepository.addUserContacts(user.getUserId(), userContacts);
 
 
